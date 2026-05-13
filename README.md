@@ -1,6 +1,6 @@
 # Diffie–Hellman Key Exchange with AES-GCM Encryption
 
-A Python demonstration of secure key exchange, authenticated encryption, and Man in the Middle attack simulation over TCP sockets — built for learning cryptography and network security fundamentals.
+A Python demonstration of secure key exchange, authenticated encryption, and Man-in-the-Middle attack simulation over TCP sockets — built for learning cryptography and network security fundamentals.
 
 ---
 
@@ -96,6 +96,8 @@ python client.py
 
 **Client**
 ```
+C:\Users\Desktop\DHM>python client.py
+Enter a prime number p: 23
 Prime p verified: 23
 Generator g found: 5
 Decrypted result from server: 72
@@ -103,19 +105,34 @@ Decrypted result from server: 72
 
 **Server**
 ```
+C:\Users\Desktop\DHM>python server.py
+Server listening...
+Connected by ('127.0.0.1', 51500)
 Server decrypted numbers: 8, 9
 ```
 
 **Intruder**
 ```
+C:\Users\Desktop\DHM>python intruder.py
+[INTRUDER] Listening for client...
+[INTRUDER] Client connected
+[INTRUDER] Connected to real server
 [INTRUDER] Intercepted Client → Server:
 {"p": 23, "g": 5, "A": 19}
 
 [INTRUDER] Intercepted Server → Client:
 {"B": 8}
+
+[INTRUDER] Intercepted Client → Server:
+{"nonce": "5fe29ad56caf94305b7f08bf", "ciphertext": "0bfb000d966077407f071d61ae2c76ce3d0df7"}
+
+[INTRUDER] Intercepted Server → Client:
+{"nonce": "58e2e53039a492f7dc4c7d6a", "ciphertext": "0a5c8065565acff04b4d4141d57765651ae1"}
+
+[INTRUDER] Connection aborted in Client → Server
 ```
 
-The intruder sees the key exchange in plaintext but receives only opaque ciphertext for all subsequent messages.
+The intruder sees the full DH handshake in plaintext (`p`, `g`, `A`, `B`) but receives only opaque nonce/ciphertext pairs for all encrypted messages — with no way to decrypt them without the shared secret.
 
 ---
 
@@ -127,7 +144,7 @@ The intruder sees the key exchange in plaintext but receives only opaque ciphert
 | AES-GCM Authenticated Encryption | `client.py`, `server.py` |
 | SHA-256 Key Derivation | `client.py`, `server.py` |
 | TCP Socket Programming | All files |
-| Man in the Middle Attack | `intruder.py` |
+| Man-in-the-Middle Attack | `intruder.py` |
 
 ---
 
@@ -145,10 +162,9 @@ This project is strictly for educational use. It is intended to illustrate crypt
 
 ---
 
-##  Author
+## Author
 
-**Daniel Nicolas Rentapalli**  
+**Daniel Nicolas Rentapalli** — Cryptography & Network Security Demonstration
 MSc Cyber Security Student  
 Swansea University  
-
 This project was developed as part of the **2526_CSCM888 / CSMM88 – Network, Wireless & Cloud Security** module at Swansea University.
