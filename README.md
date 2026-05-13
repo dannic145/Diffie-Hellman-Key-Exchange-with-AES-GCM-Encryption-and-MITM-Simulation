@@ -1,6 +1,6 @@
 # Diffie–Hellman Key Exchange with AES-GCM Encryption
 
-A Python demonstration of secure key exchange, authenticated encryption, and Man-in-the-Middle attack simulation over TCP sockets — built for learning cryptography and network security fundamentals.
+A Python demonstration of secure key exchange, authenticated encryption, and Man in the Middle attack simulation over TCP sockets — built for learning cryptography and network security fundamentals.
 
 ---
 
@@ -144,7 +144,7 @@ The intruder sees the full DH handshake in plaintext (`p`, `g`, `A`, `B`) but re
 | AES-GCM Authenticated Encryption | `client.py`, `server.py` |
 | SHA-256 Key Derivation | `client.py`, `server.py` |
 | TCP Socket Programming | All files |
-| Man-in-the-Middle Attack | `intruder.py` |
+| Man in the Middle Attack | `intruder.py` |
 
 ---
 
