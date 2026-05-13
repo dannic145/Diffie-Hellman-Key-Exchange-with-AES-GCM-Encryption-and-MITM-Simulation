@@ -59,7 +59,7 @@ Client ──► Intruder ──► Server
 Client ◄── Intruder ◄── Server
 ```
 
-The intruder can read the plaintext key exchange parameters (`p`, `g`, `A`, `B`) but cannot decrypt the AES-GCM ciphertext without the shared secret — demonstrating why authenticated encryption matters even when the channel is compromised.
+The intruder can read the plaintext key exchange parameters (`p`, `g`, `A`, `B`) but cannot decrypt the AES-GCM ciphertext without the shared secret, demonstrating why authenticated encryption matters even when the channel is compromised.
 
 ---
 
@@ -132,7 +132,7 @@ C:\Users\Desktop\DHM>python intruder.py
 [INTRUDER] Connection aborted in Client → Server
 ```
 
-The intruder sees the full DH handshake in plaintext (`p`, `g`, `A`, `B`) but receives only opaque nonce/ciphertext pairs for all encrypted messages — with no way to decrypt them without the shared secret.
+The intruder sees the full DH handshake in plaintext (`p`, `g`, `A`, `B`) but receives only opaque nonce/ciphertext pairs for all encrypted messages with no way to decrypt them without the shared secret.
 
 ---
 
@@ -151,8 +151,8 @@ The intruder sees the full DH handshake in plaintext (`p`, `g`, `A`, `B`) but re
 ## Security Notes
 
 - The small prime (`p = 23`) used in the example output is for readability only. A real implementation requires a cryptographically large prime (2048-bit minimum).
-- This project does **not** include public key authentication, so the DH exchange itself is vulnerable to an active MITM who replaces public values — a gap intentionally left open for discussion.
-- AES-GCM nonces must never be reused under the same key. Ensure proper nonce management in any production-derived code.
+- This project does **not** include public key authentication, so the DH exchange itself is vulnerable to an active MITM who replaces public values, a gap intentionally left open for discussion.
+- AES-GCM nonces must never be reused under the same key. Ensure proper nonce management in any production derived code.
 
 ---
 
