@@ -145,8 +145,6 @@ This project is strictly for educational use. It is intended to illustrate crypt
 
 ---
 
-## Author
-
 ##  Author
 
 **Daniel Nicolas Rentapalli**  
