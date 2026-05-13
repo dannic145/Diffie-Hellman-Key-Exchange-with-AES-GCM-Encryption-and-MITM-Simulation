@@ -127,7 +127,7 @@ The intruder sees the key exchange in plaintext but receives only opaque ciphert
 | AES-GCM Authenticated Encryption | `client.py`, `server.py` |
 | SHA-256 Key Derivation | `client.py`, `server.py` |
 | TCP Socket Programming | All files |
-| Man-in-the-Middle Attack | `intruder.py` |
+| Man in the Middle Attack | `intruder.py` |
 
 ---
 
